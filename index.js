@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT||4000;
+require('dotenv/config');
+const port = process.env.BASE_URL||4000;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 const logindata = require("./router/allRoutes")
-require('dotenv/config');
 app.use(
   bodyParser.json()
 )

@@ -1,9 +1,9 @@
 const AllResult = require('../models/AllResultSchema')
 exports.updateSubmission = async (req, res) => {
-    const { studentId, question, answer, response } = req.body;
+    const {roomId, studentId, question, answer, response } = req.body;
   
     try {
-      const user = await AllResult.findOne({ 'Questions.studentId': studentId });
+      const user = await AllResult.findOne({ roomId });
       if (!user) {
         return res.status(404).json({ message: 'User not found' });
       }
