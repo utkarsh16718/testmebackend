@@ -7,9 +7,9 @@ const csvdownload = async (req, res) => {
   try {
     const question = await AllResult.findOne({ roomId });
     if (question) {
-      const fields = ['studentId', 'Question', 'Answer', 'Response'];
+      const fields = ['studentId','StudentEmail', 'Question', 'Answer', 'Response'];
       const rows = question.Questions.flatMap(q =>
-        q.Submissions.map(s => ({ studentId: q.studentId,Question:s.Question,Answer:s.Answer,Response:s.Response}))
+        q.Submissions.map(s => ({ studentId: q.studentId,StudentEmail:q.Email,Question:s.Question,Answer:s.Answer,Response:s.Response}))
       );
       const csv = json2csv(rows, { fields });
       res.status(201).json(csv)

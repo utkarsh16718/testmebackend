@@ -9,6 +9,7 @@ const AllResult = new mongoose.Schema({
     },
     Questions: [{
         studentId: { type: String },
+        Email: { type: String },
         Submissions: [{
             Question: { type: String },
             Answer: { type: String },
